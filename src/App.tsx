@@ -1,10 +1,9 @@
 import { useMemo, useState } from 'react'
 import {
-  Activity, AlertCircle, ArrowDownToLine, ArrowRight, ArrowUpRight, Bell, Building2,
-  CalendarDays, ChartNoAxesCombined, CheckCircle2, ChevronDown, ChevronRight,
-  CircleHelp, ClipboardCheck, Clock3, Database, Download, FileSpreadsheet, FileText,
-  Filter, Globe2, Home, LayoutDashboard, LockKeyhole, MapPin, Menu, MoreHorizontal,
-  Plus, Search, Settings, ShieldCheck, SlidersHorizontal, Users, UserRound, UserPlus, X
+  Activity, AlertCircle, ArrowRight, Bell, Building2, CalendarDays, ChartNoAxesCombined,
+  ChevronDown, ChevronRight, CircleHelp, ClipboardCheck, Database, Download, FileSpreadsheet,
+  FileText, Globe2, Home, LayoutDashboard, LockKeyhole, Menu, Plus, Search, Settings,
+  ShieldCheck, SlidersHorizontal, Users, X
 } from 'lucide-react'
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
@@ -95,7 +94,7 @@ function SettingsPage() {
 function HelpPage() {
   return <><div className="page-intro"><div><div className="date-line">SUPPORT CENTRE</div><h1>Help & support</h1><p>Guidance for using the Village Information Management System.</p></div></div><div className="help-grid"><article className="panel help-card"><CircleHelp size={22}/><h3>Getting started</h3><p>Learn how to navigate the dashboard, find records and understand the main modules.</p><button>Read user guide <ArrowRight size={15}/></button></article><article className="panel help-card"><Users size={22}/><h3>Family & resident records</h3><p>Understand family profiles, household membership and individual resident details.</p><button>View record guide <ArrowRight size={15}/></button></article><article className="panel help-card"><ShieldCheck size={22}/><h3>Privacy & security</h3><p>Learn why access permissions and careful handling of personal information matter.</p><button>View security guide <ArrowRight size={15}/></button></article></div><section className="panel support-panel"><div className="support-icon"><CircleHelp size={20}/></div><div><h3>Need help with this system?</h3><p>Support contact details and issue reporting will be added when the administration workflow is configured.</p></div></section></>
 }
-function Dashboard({ onBack }: { onBack:()=>void }) {
+function Dashboard() {
   const [active,setActive]=useState<Section>('Overview')
   const [menu,setMenu]=useState(false)
   const [query,setQuery]=useState('')
@@ -113,5 +112,5 @@ function Dashboard({ onBack }: { onBack:()=>void }) {
 export default function App() {
   const [entered,setEntered]=useState(false)
   const [sinhala,setSinhala]=useState(false)
-  return entered?<Dashboard onBack={()=>setEntered(false)}/>:<Welcome onEnter={()=>setEntered(true)} sinhala={sinhala} setSinhala={setSinhala}/>
+  return entered?<Dashboard/>:<Welcome onEnter={()=>setEntered(true)} sinhala={sinhala} setSinhala={setSinhala}/>
 }
